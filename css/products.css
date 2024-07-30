@@ -1,0 +1,17 @@
+.products {
+  padding: 100px 0;
+}
+
+.products__title {
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 32px;
+  color: #64099b;
+}
+.pdocts__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
