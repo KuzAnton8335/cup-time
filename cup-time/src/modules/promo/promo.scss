@@ -1,3 +1,4 @@
+@use "../../media.scss" as *;
 .promo {
   background-color: #6cb9ab;
   color: #fff;
@@ -9,6 +10,19 @@
   background-image: url("../img/banner-desctop.png");
   background-position: right 113px bottom 0;
   background-repeat: no-repeat;
+
+  @include smlaptop {
+    padding-top: 172px;
+    padding-bottom: 60px;
+    background-image: url("../img/banner-planshet.png");
+    background-position: right 48px bottom 0;
+  }
+
+  @include minlaptop {
+    background-size: 203px;
+    background-position: right bottom;
+    padding-top: 157px;
+  }
 }
 .promo__title {
   max-width: 788px;
@@ -17,6 +31,17 @@
   line-height: 1.1;
   margin-top: 0;
   margin-bottom: 60px;
+
+  @include smlaptop {
+    max-width: 620px;
+    font-size: 70px;
+    margin-bottom: 40px;
+  }
+
+  @include minlaptop {
+    max-width: 460px;
+    font-size: 54px;
+  }
 }
 .promo__link {
   display: inline-block;
@@ -26,4 +51,9 @@
   padding: 14px 24px;
   font-size: 20px;
   font-weight: 400;
+
+  @include minlaptop {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
 }

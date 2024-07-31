@@ -1,7 +1,12 @@
+@use "../../media.scss" as *;
 .footer {
   background-color: #6cb9ab;
   color: #fff;
   padding: 60px 0;
+
+  @include minlaptop {
+    padding: 40px 0;
+  }
 }
 
 .footer__container {
@@ -19,11 +24,23 @@
   display: flex;
   align-items: center;
   gap: 50px;
+
+  @include smlaptop {
+    gap: 32px;
+  }
+
+  @include minlaptop {
+    gap: 24px;
+  }
 }
 
 .footer__link {
   font-size: 20px;
   font-weight: 400;
+
+  @include minlaptop {
+    font-size: 16px;
+  }
 }
 
 .footer__copyright {
@@ -31,35 +48,60 @@
   margin-bottom: 17px;
   font-weight: 400;
   font-size: 16px;
+
+  @include minlaptop {
+    font-size: 12px;
+  }
 }
 .footer__description {
   margin: 0;
   font-size: 16px;
   font-weight: 400;
   padding-bottom: 3px;
+
+  @include minlaptop {
+    font-size: 12px;
+  }
 }
 .footer__developers {
   font-size: 16px;
   font-weight: 400;
+  @include minlaptop {
+    font-size: 12px;
+  }
 }
 .footer__developer {
   font-size: 16px;
   font-weight: 400;
+  @include minlaptop {
+    font-size: 12px;
+  }
 }
 .footer__developer-link {
   font-size: 16px;
   font-weight: 400;
+  @include minlaptop {
+    font-size: 12px;
+  }
 }
 
 .footer__mail-link {
   font-size: 20px;
   font-weight: 400;
+
+  @include minlaptop {
+    font-size: 16px;
+  }
 }
 .footer__social {
   margin-top: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
+
+  @include minlaptop {
+    margin-top: 12px;
+  }
 }
 .footer__social-item {
   width: 32px;

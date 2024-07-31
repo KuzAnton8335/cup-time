@@ -1,4 +1,4 @@
-/* inter-regular - cyrillic_latin */
+@use "./media.scss" as *;
 @font-face {
   font-display: swap;
   font-family: "Inter";
@@ -44,4 +44,8 @@ img {
   max-width: 1300px;
   padding: 0 50px;
   margin: 0 auto;
+
+  @include smlaptop {
+    padding: 0 42px;
+  }
 }

@@ -1,0 +1,35 @@
+$smlaptop: 1240px;
+$laptop: 1024px;
+$minlaptop: 940px;
+$tablet: 768px;
+$mobail: 520px;
+
+@mixin smlaptop {
+	@media (max-width: $smlaptop) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media (max-width: $laptop) {
+		@content;
+	}
+}
+
+@mixin minlaptop {
+	@media (max-width: $minlaptop) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: $tablet) {
+		@content;
+	}
+}
+
+@mixin mobail {
+	@media (max-width: $mobail) {
+		@content;
+	}
+}
