@@ -48,4 +48,8 @@ img {
   @include smlaptop {
     padding: 0 42px;
   }
+
+  @include mobail {
+    padding: 0 16px;
+  }
 }

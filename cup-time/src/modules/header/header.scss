@@ -13,6 +13,10 @@
     padding: 0;
     top: 20px;
   }
+
+  @include mobail {
+    top: 8px;
+  }
 }
 
 .header__container {
@@ -45,6 +49,10 @@
   @include minlaptop {
     gap: 24px;
   }
+
+  @include mobail {
+    display: none;
+  }
 }
 
 .header__menu-link {
@@ -67,10 +75,17 @@
 }
 
 .header__burger {
+  display: none;
   width: 28px;
   height: 28px;
   cursor: pointer;
-  background: transperent;
+  background: inherit;
+  border: none;
+  outline: none;
+
+  @include mobail {
+    display: block;
+  }
 }
 
 .header__burger-line {
@@ -78,6 +93,27 @@
   width: 20px;
   height: 1px;
   background: #d9d9d9;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: #d9d9d9;
+    position: absolute;
+    top: -4px;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: #d9d9d9;
+    position: absolute;
+    top: 4px;
+  }
 }
 
 .header__cart-link {

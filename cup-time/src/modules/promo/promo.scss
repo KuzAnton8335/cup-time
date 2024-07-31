@@ -19,9 +19,18 @@
   }
 
   @include minlaptop {
+    padding-top: 157px;
     background-size: 203px;
     background-position: right bottom;
-    padding-top: 157px;
+  }
+
+  @include mobail {
+    padding-top: 86px;
+    padding-bottom: 86px;
+    background-image: url("../img/banner-mobail.png");
+    background-position: 50% 330px;
+    min-height: 650px;
+    height: 100%;
   }
 }
 .promo__title {
@@ -41,6 +50,12 @@
   @include minlaptop {
     max-width: 460px;
     font-size: 54px;
+  }
+
+  @include mobail {
+    max-width: 305px;
+    font-size: 40px;
+    margin-bottom: 24px;
   }
 }
 .promo__link {

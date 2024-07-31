@@ -2,7 +2,8 @@ $smlaptop: 1240px;
 $laptop: 1024px;
 $minlaptop: 940px;
 $tablet: 768px;
-$mobail: 724px;
+$mobail: 624px;
+$minmobail: 375px;
 
 @mixin smlaptop {
 	@media (max-width: $smlaptop) {
@@ -30,6 +31,12 @@ $mobail: 724px;
 
 @mixin mobail {
 	@media (max-width: $mobail) {
+		@content;
+	}
+}
+
+@mixin minmobail {
+	@media (max-width: $minmobail) {
 		@content;
 	}
 }

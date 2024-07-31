@@ -15,6 +15,11 @@
   @include minlaptop {
     min-height: 360px;
   }
+
+  @include mobail {
+    max-width: 140px;
+    width: 100%;
+  }
 }
 
 .product__content {
@@ -33,6 +38,11 @@
   @include minlaptop {
     height: 210px;
     object-fit: cover;
+  }
+
+  @include mobail {
+    width: 140px;
+    height: 360px;
   }
 }
 .product__title {
