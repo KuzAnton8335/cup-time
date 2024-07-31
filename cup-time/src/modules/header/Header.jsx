@@ -26,9 +26,14 @@ export const Header = () => {
 							</li>
 						</ul>
 					</nav>
-					<a href="cart.html" className="header__cart-link">
-						6
-					</a>
+					<div className="header__mobail-menu">
+						<a href="cart.html" className="header__cart-link">
+							6
+						</a>
+						<button className="header__burger">
+							<span className="header__burger-line"></span>
+						</button>
+					</div>
 				</div>
 			</header>
 		</>

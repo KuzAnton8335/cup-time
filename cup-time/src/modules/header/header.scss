@@ -60,6 +60,26 @@
   color: rgb(100, 9, 155);
 }
 
+.header__mobail-menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header__burger {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  background: transperent;
+}
+
+.header__burger-line {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: #d9d9d9;
+}
+
 .header__cart-link {
   width: 28px;
   height: 28px;
