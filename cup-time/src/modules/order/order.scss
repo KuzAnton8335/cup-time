@@ -21,6 +21,11 @@
 		grid-template-columns: repeat(2, 1fr);
 		gap: 20px;
 		max-width: 640px;
+
+		@include mobail {
+			max-width: 288px;
+			grid-template-columns: repeat(1, 1fr);
+		}
 	}
 	&__input {
 		border-radius: 4px;
