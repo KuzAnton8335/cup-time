@@ -1,0 +1,57 @@
+@use "../../media.scss" as *;
+.cart {
+	padding: 215px 0 50px;
+	&__container {
+		display: grid;
+		align-items: start;
+		grid-template-columns: 2fr 1fr;
+		gap: 32px 20px;
+	}
+
+	&__title {
+		font-weight: 400;
+		font-size: 54px;
+		line-height: 1.1;
+		color: #64099b;
+		margin: 0;
+		grid-column: 1/ -1;
+	}
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 20px;
+	}
+	&__summary {
+		display: grid;
+		grid-template-areas: "title button" "total button";
+		justify-content: space-between;
+		align-items: center;
+		gap: 8px;
+		padding: 24px;
+		background-color: #f2f9f7;
+		color: #1d1d1d;
+	}
+	&__summary-title {
+		margin: 0;
+		grid-area: title;
+		font-weight: 400;
+		font-size: 20px;
+		color: #1d1d1d;
+	}
+	&__summary-total {
+		margin: 0;
+		grid-area: total;
+		font-size: 20px;
+		color: #1d1c1d;
+	}
+	&__order-btn {
+		grid-area: button;
+		border: 1px solid #64099b;
+		border-radius: 4px;
+		padding: 16px 24px;
+		font-size: 20px;
+		color: #64099b;
+		background-color: transparent;
+		cursor: pointer;
+	}
+}

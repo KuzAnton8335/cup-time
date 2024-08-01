@@ -1,0 +1,53 @@
+@use "../../media.scss" as *;
+.cart-item {
+	font-size: 0;
+	background-color: #f2f9f7;
+	&__img {
+		width: 100%;
+	}
+
+	&__info {
+		padding: 16px;
+	}
+	&__title {
+		font-weight: 400;
+		font-size: 20px;
+		color: #1d1c1d;
+		margin-bottom: 8px;
+	}
+	&__quantity {
+		display: flex;
+		gap: 4px;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	&__quantity-btn {
+		background-color: transparent;
+		border: 1px solid #b8b8b8;
+		border-radius: 4px;
+		width: 36px;
+		height: 36px;
+		cursor: pointer;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	&__quantity-btn_minus {
+		background-image: url("/img/minus.svg");
+	}
+	&__quantity-input {
+		width: 26px;
+		font-size: 20px;
+		text-align: center;
+		background-color: transparent;
+		border: none;
+		outline: none;
+	}
+
+	&__quantity-btn_plus {
+		background-image: url("/img/plus.svg");
+	}
+	&__price {
+		font-weight: 400;
+		font-size: 20px;
+	}
+}

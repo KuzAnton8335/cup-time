@@ -31,6 +31,10 @@
   @include minlaptop {
     padding: 24px;
   }
+
+  @include mobail {
+    padding: 32px 8px 8px;
+  }
 }
 .product__img {
   width: 100%;
@@ -41,8 +45,8 @@
   }
 
   @include mobail {
-    width: 140px;
-    height: 360px;
+    min-height: 226px;
+    object-fit: cover;
   }
 }
 .product__title {
@@ -60,6 +64,10 @@
 
   @include minlaptop {
     font-size: 20px;
+  }
+
+  @include mobail {
+    font-size: 16px;
   }
 }
 .product__price {

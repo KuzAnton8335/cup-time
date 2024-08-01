@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./header.scss";
 
 export const Header = () => {
@@ -5,9 +6,9 @@ export const Header = () => {
 		<>
 			<header className="header">
 				<div className="container header__container">
-					<a className="header__logo">
+					<Link to="/" className="header__logo">
 						<img src="./img/logo.svg" alt="Логотип cup time" className="header__logo-img" />
-					</a>
+					</Link>
 					<nav className="header__nav">
 						<ul className="header__menu">
 							<li className="header__menu-item"><a href="#" className="header__menu-link header__menu-link--active">Чай</a>
@@ -27,9 +28,9 @@ export const Header = () => {
 						</ul>
 					</nav>
 					<div className="header__mobail-menu">
-						<a href="cart.html" className="header__cart-link">
+						<Link to="cart" className="header__cart-link">
 							6
-						</a>
+						</Link>
 						<button className="header__burger">
 							<span className="header__burger-line"></span>
 						</button>

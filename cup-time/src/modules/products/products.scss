@@ -5,6 +5,10 @@
   @include minlaptop {
     padding: 80px 0;
   }
+
+  @include mobail {
+    padding: 60px 0;
+  }
 }
 
 .products__title {
