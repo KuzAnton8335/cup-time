@@ -1,11 +1,29 @@
 @use "../../media.scss" as *;
 .cart {
 	padding: 215px 0 50px;
+
+	@include smlaptop {
+		padding: 170px 0 50px;
+	}
+
+	@include minlaptop {
+		padding: 140px 0 40px;
+	}
 	&__container {
 		display: grid;
 		align-items: start;
 		grid-template-columns: 2fr 1fr;
 		gap: 32px 20px;
+
+		@include smlaptop {
+			gap: 32px 60px;
+		}
+
+		@include minlaptop {
+			grid-template-columns: 1fr;
+			grid-template-areas: "summary" "title" "cart";
+			gap: 24px 40px;
+		}
 	}
 
 	&__title {
@@ -15,11 +33,26 @@
 		color: #64099b;
 		margin: 0;
 		grid-column: 1/ -1;
+
+		@include minlaptop {
+			grid-area: title;
+			font-size: 36px;
+		}
 	}
 	&__items {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 		gap: 20px;
+
+		@include smlaptop {
+			grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		}
+
+		@include minlaptop {
+			grid-area: cart;
+			grid-template-columns: repeat(auto-fit, minmax(159px, 1fr));
+			gap: 16px;
+		}
 	}
 	&__summary {
 		display: grid;
@@ -29,7 +62,12 @@
 		gap: 8px;
 		padding: 24px;
 		background-color: #f2f9f7;
+		border-radius: 6px;
 		color: #1d1d1d;
+
+		@include minlaptop {
+			grid-area: summary;
+		}
 	}
 	&__summary-title {
 		margin: 0;

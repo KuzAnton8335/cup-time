@@ -1,21 +1,66 @@
 @use "../../media.scss" as *;
 .order {
+	padding: 50px 0 100px;
+
+	@include minlaptop {
+		padding: 40px 0 80px;
+	}
 	&__title {
+		font-weight: 400;
+		font-size: 54px;
+		line-height: 1.1;
+		color: #64099b;
+		margin-bottom: 32px;
+
+		@include minlaptop {
+			font-size: 36px;
+		}
 	}
 	&__form {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		max-width: 640px;
 	}
 	&__input {
+		border-radius: 4px;
+		padding: 16px;
+		background-color: #f2f9f7;
+		font-size: 16px;
+		border: none;
+		&::placeholder {
+			color: #b8b8b8;
+		}
 	}
-	&__input {
-	}
+
 	&__input_address {
+		grid-column: 1 / -1;
 	}
 	&__payment {
+		margin: 0;
+		padding: 0;
+		padding: 12px 0 0;
+		border: none;
 	}
 	&__payment-title {
+		display: block;
+		margin: 0;
+		font-weight: 400;
+		font-size: 20px;
+		margin-bottom: 12px;
 	}
 	&__payment-label {
+		display: block;
+		font-weight: 400;
+		font-size: 16px;
+		color: #1d1c1d;
+		margin-bottom: 8px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 	&__radio {
+		margin-right: 8px;
 	}
 }
