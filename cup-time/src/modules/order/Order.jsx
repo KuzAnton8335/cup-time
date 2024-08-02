@@ -21,7 +21,6 @@ export const Order = () => {
 						</label>
 					</fieldset>
 				</form>
-
 			</div>
 		</section>
 	)

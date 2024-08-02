@@ -3,13 +3,18 @@
 	padding: 50px 0 100px;
 
 	@include minlaptop {
-		padding: 40px 0 80px;
+		padding: 30px 0 80px;
+	}
+
+	@include mobail {
+		padding: 30px 0 60px;
 	}
 	&__title {
 		font-weight: 400;
 		font-size: 54px;
 		line-height: 1.1;
 		color: #64099b;
+		margin-top: 0;
 		margin-bottom: 32px;
 
 		@include minlaptop {
@@ -22,19 +27,39 @@
 		gap: 20px;
 		max-width: 640px;
 
+		@include smlaptop {
+			max-width: 620px;
+		}
+
+		@include minlaptop {
+			gap: 16px;
+			max-width: none;
+		}
+
 		@include mobail {
-			max-width: 288px;
-			grid-template-columns: repeat(1, 1fr);
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 20px;
+			max-width: 640px;
 		}
 	}
 	&__input {
-		border-radius: 4px;
 		padding: 16px;
 		background-color: #f2f9f7;
 		font-size: 16px;
 		border: none;
 		&::placeholder {
 			color: #b8b8b8;
+		}
+
+		@include minlaptop {
+			padding: 12px 16px;
+			border-radius: 4px;
+		}
+
+		@include mobail {
+			border: none;
+			padding: 17px 16px;
 		}
 	}
 
@@ -46,6 +71,14 @@
 		padding: 0;
 		padding: 12px 0 0;
 		border: none;
+
+		@include minlaptop {
+			padding-top: 8px;
+		}
+
+		@include mobail {
+			padding-top: 12px;
+		}
 	}
 	&__payment-title {
 		display: block;
@@ -53,6 +86,11 @@
 		font-weight: 400;
 		font-size: 20px;
 		margin-bottom: 12px;
+
+		@include mobail {
+			margin-top: 0;
+			margin-bottom: 12px;
+		}
 	}
 	&__payment-label {
 		display: block;
@@ -63,6 +101,12 @@
 
 		&:last-child {
 			margin-bottom: 0;
+		}
+
+		@include mobail {
+			display: block;
+			font-size: 16px;
+			margin-bottom: 8px;
 		}
 	}
 	&__radio {

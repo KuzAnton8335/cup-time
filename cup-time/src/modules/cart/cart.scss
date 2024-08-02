@@ -7,7 +7,11 @@
 	}
 
 	@include minlaptop {
-		padding: 140px 0 40px;
+		padding: 139px 0 30px;
+	}
+
+	@include mobail {
+		padding: 100px 0 30px;
 	}
 	&__container {
 		display: grid;
@@ -16,13 +20,18 @@
 		gap: 32px 20px;
 
 		@include smlaptop {
-			gap: 32px 60px;
+			grid-template-columns: 1fr 300px;
 		}
 
 		@include minlaptop {
+			gap: 0;
 			grid-template-columns: 1fr;
-			grid-template-areas: "summary" "title" "cart";
-			gap: 24px 40px;
+		}
+
+		@include mobail {
+			display: grid;
+			align-items: start;
+			grid-template-columns: 1fr;
 		}
 	}
 
@@ -35,7 +44,12 @@
 		grid-column: 1/ -1;
 
 		@include minlaptop {
-			grid-area: title;
+			order: 2;
+			margin-bottom: 24px;
+			font-size: 36px;
+		}
+
+		@include mobail {
 			font-size: 36px;
 		}
 	}
@@ -49,9 +63,14 @@
 		}
 
 		@include minlaptop {
-			grid-area: cart;
+			order: 3;
 			grid-template-columns: repeat(auto-fit, minmax(159px, 1fr));
-			gap: 16px;
+		}
+
+		@include mobail {
+			grid-column: 1 / -1;
+			grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+			gap: 8px;
 		}
 	}
 	&__summary {
@@ -66,7 +85,20 @@
 		color: #1d1d1d;
 
 		@include minlaptop {
-			grid-area: summary;
+			order: 1;
+			margin-bottom: 40px;
+			grid-template-areas: "title total button";
+			grid-template-columns: min-content 1fr min-content;
+			gap: 6px;
+		}
+
+		@include mobail {
+			grid-column: 1 / -1;
+			margin-bottom: 30px;
+			justify-content: space-between;
+			grid-template-areas:
+				"title button"
+				"total button";
 		}
 	}
 	&__summary-title {
@@ -75,12 +107,20 @@
 		font-weight: 400;
 		font-size: 20px;
 		color: #1d1d1d;
+
+		@include minlaptop {
+			font-size: 16px;
+		}
 	}
 	&__summary-total {
 		margin: 0;
 		grid-area: total;
 		font-size: 20px;
 		color: #1d1c1d;
+
+		@include minlaptop {
+			font-size: 16px;
+		}
 	}
 	&__order-btn {
 		grid-area: button;
@@ -91,5 +131,14 @@
 		color: #64099b;
 		background-color: transparent;
 		cursor: pointer;
+
+		@include minlaptop {
+			padding: 12px 18px;
+			font-size: 16px;
+		}
+
+		@include mobail {
+			justify-self: end;
+		}
 	}
 }
