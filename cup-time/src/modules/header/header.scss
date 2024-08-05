@@ -74,10 +74,10 @@
   @include minlaptop {
     font-size: 16px;
   }
-}
 
-.header__menu-link--active {
-  color: rgb(100, 9, 155);
+  &.active {
+    color: #64099b;
+  }
 }
 
 .header__mobail-menu {

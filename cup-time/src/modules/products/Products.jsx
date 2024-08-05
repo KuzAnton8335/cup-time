@@ -1,8 +1,17 @@
-import { products } from "../../products-data.js";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useProducts } from "../../context/ProductContext.jsx";
 import { Product } from "../product/Product";
 import "./products.scss";
 
 export const Products = () => {
+	const [searchParams] = useSearchParams();
+	const { products, setCategory } = useProducts();
+	const category = searchParams.get("category");
+
+	useEffect(() => {
+		setCategory(category);
+	}, [category, setCategory]);
 	return (
 		<>
 			<section className="products">
