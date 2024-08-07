@@ -1,0 +1,15 @@
+@use "../../media.scss" as *;
+
+.skeleton-wrapper {
+	background-color: #f2f9f7;
+	width: 100%;
+	height: 600px;
+
+	@include smlaptop {
+		height: 450px;
+	}
+
+	@include minlaptop {
+		height: 360px;
+	}
+}
