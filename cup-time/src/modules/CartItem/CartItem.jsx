@@ -4,9 +4,8 @@ import { useCart } from "../../context/CartContext";
 import "./cartitem.scss";
 
 export const CartItem = ({ data }) => {
-	// полученте данных для input
-	const [itemQuantity, setItemQuantity] = useState(data.quantity);
-	const [updateQuantity] = useCart();
+	const [itemQuantity, setItemQuantity] = useState(data.quantity || 0);
+	const { updateQuantity, removeToCart } = useCart()
 
 	const handleDecrease = () => {
 		const newQuantity = itemQuantity - 1;
@@ -14,7 +13,7 @@ export const CartItem = ({ data }) => {
 			setItemQuantity(newQuantity)
 			updateQuantity(data.id, newQuantity)
 		} else {
-			updateQuantity(data.id, 0)
+			removeToCart(data.id)
 		}
 	}
 	const handleIncrease = () => {
@@ -23,18 +22,17 @@ export const CartItem = ({ data }) => {
 		updateQuantity(data.id, newQuantity)
 	}
 
-
 	return (
 		<li className="cart-item">
 			<img src={`${API_URL}${data.img}`} alt={data.title} className="cart-item__img" />
 			<div className="cart-item__info">
 				<h3 className="cart-item__title">{data.title}</h3>
 				<div className="cart-item__quantity">
-					<button className="cart-item__quantity-btn cart-item__quantity-btn_minus" onClick={handleDecrease}>-</button>
-					<input type="number" className="cart-item__quantity-input" value={data.quantity} readOnly />
+					<button className="cart-item__quantity-btn cart-item__quantity-btn_minus" onClick={handleDecrease} >-</button>
+					<input type="number" className="cart-item__quantity-input" value={itemQuantity} readOnly />
 					<button className="cart-item__quantity-btn cart-item__quantity-btn_plus" onClick={handleIncrease}>+</button>
 				</div>
-				<p className="cart-item__price">{data.price * data.quantity}&nbsp;</p>
+				<p className="cart-item__price">{data.price * itemQuantity}&nbsp;</p>
 			</div>
 		</li>
 	)

@@ -19,7 +19,6 @@ export const Products = () => {
 				<div className="container">
 					<h2 className="products__title">Чай</h2>
 					<ul className="pdocts__list">
-
 						{products.length ? products.map((item) => (
 							<Product key={item.id} data={item} />
 						)) : (<SkeletonLoader />)}

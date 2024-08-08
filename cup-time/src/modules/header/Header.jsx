@@ -1,7 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 import "./header.scss";
 
 export const Header = () => {
+	const { cart = [] } = useCart();
 	const location = useLocation();
 	const getActiveClass = (category) => {
 		const currentCategory = new
@@ -46,7 +48,7 @@ export const Header = () => {
 					</nav>
 					<div className="header__mobail-menu">
 						<Link to="cart" className="header__cart-link">
-							6
+							{cart.length}
 						</Link>
 						<button className="header__burger">
 							<span className="header__burger-line"></span>

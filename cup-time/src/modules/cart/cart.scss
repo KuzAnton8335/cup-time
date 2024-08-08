@@ -55,21 +55,21 @@
 	}
 	&__items {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 		gap: 20px;
 
 		@include smlaptop {
-			grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+			grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 		}
 
 		@include minlaptop {
 			order: 3;
-			grid-template-columns: repeat(auto-fit, minmax(159px, 1fr));
+			grid-template-columns: repeat(auto-fill, minmax(159px, 1fr));
 		}
 
 		@include mobail {
 			grid-column: 1 / -1;
-			grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+			grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 			gap: 8px;
 		}
 	}

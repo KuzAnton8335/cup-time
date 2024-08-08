@@ -9,6 +9,7 @@ export const CartProvider = ({ children }) => {
 		const storeCart = JSON.parse(localStorage.getItem("cart") || '[]');
 		setCart(storeCart);
 	}, []);
+
 	// сохранения данных в localStorage
 	useEffect(() => {
 		if (Array.isArray(cart)) {
@@ -19,13 +20,13 @@ export const CartProvider = ({ children }) => {
 	// функция добавления товара в корзину
 	const addToCart = (product, quantity) => {
 		const newCart = [...cart];
-		const itemIndex = newCart.findIndex((item) => item.id === product.id)
+
+		const itemIndex = newCart.findIndex((item) => (item.id === product.id));
 		if (itemIndex >= 0) {
 			newCart[itemIndex].quantity += quantity;
 		} else {
 			newCart.push({ ...product, quantity })
 		}
-
 		setCart(newCart);
 	}
 	// функция удаления товара из корзины
@@ -37,12 +38,7 @@ export const CartProvider = ({ children }) => {
 		if (quantity <= 0) {
 			removeToCart(productId);
 		} else {
-			setCart(cart.map(item => {
-				if (item.id === productId) {
-					return { ...item, quantity }
-				}
-				return item
-			}))
+			setCart(cart.map((item) => (item.id === productId ? { ...item, quantity } : item)))
 		}
 	};
 
@@ -55,4 +51,6 @@ export const CartProvider = ({ children }) => {
 	)
 }
 
-export const useCart = () => useContext(CartContext);
+export const useCart = () => {
+	return useContext(CartContext);
+};

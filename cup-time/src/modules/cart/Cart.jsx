@@ -1,24 +1,21 @@
 import { useCart } from "../../context/CartContext";
 import { CartItem } from "../CartItem/CartItem";
+import SkeletonLoader from "../skeleton-loader/SkeletonLoader";
 import "./cart.scss";
 
 export const Cart = () => {
-	// !!! ошибка TypeError: useCart is not a function or its return value is not iterable разобратся - TypeError: useCart не является функцией или ее возвращаемое значение не поддается итерации
-	// получения данных корзины из контекста useCart
-	const { cart } = useCart();
-
-	// получение ценны всех толваров из корзины методом cart.reduce()
+	const { cart = [] } = useCart();
 	const totalPrice = cart ? cart.reduce((acc, item) => item.quantity * item.price + acc, 0) : 0;
 
 	return (
 		<section className="cart">
 			<div className="container cart__container">
-				<h2 className="cart__title">Корзина (6)</h2>
-
+				<h2 className="cart__title">Корзина ({cart.length})</h2>
 				<ul className="cart__items">
-					{cart.map((item) => (
-						<CartItem key={item.id} data={item} />
-					))}
+					{cart ? (cart.map((item) => (
+						<CartItem key={item.id} data={item} />))) : (
+						<SkeletonLoader />
+					)}
 				</ul>
 				<div className="cart__summary">
 					<h3 className="cart__summary-title">Итого:</h3>
