@@ -42,10 +42,16 @@ export const CartProvider = ({ children }) => {
 		}
 	};
 
+	// функция очистки данных в Cart.jsx
+	const clearCart = () => {
+		setCart([])
+	};
+
+
 
 
 	return (
-		<CartContext.Provider value={{ cart, addToCart, removeToCart, updateQuantity }}>
+		<CartContext.Provider value={{ cart, addToCart, removeToCart, updateQuantity, clearCart }}>
 			{children}
 		</CartContext.Provider>
 	)
