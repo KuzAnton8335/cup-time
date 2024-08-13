@@ -1,11 +1,14 @@
 import { useState } from "react";
+import Modal from "react-modal";
 import { API_URL } from "../../const";
 import { useCart } from "../../context/CartContext";
 import { useOrder } from "../../context/OrderContext";
 import { CartItem } from "../CartItem/CartItem";
 import SkeletonLoader from "../skeleton-loader/SkeletonLoader";
 import "./cart.scss";
-// ! Остановился на времени 32:12
+// !! остановился на времени 47:20!!
+Modal.setAppElement("#root");
+
 export const Cart = () => {
 	// статус заказа из корзины из хука useState
 	const [orderStatus, setOrderStatus] = useState(null);
@@ -29,9 +32,9 @@ export const Cart = () => {
 		}
 		// отправка данных
 		try {
-			const response = await fetch(`${API_URL}/api/orders`, {
+			const response = await fetch(`${API_URL}/api/orders/`, {
 				method: "POST",
-				header: {
+				headers: {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify(orderData),
@@ -54,6 +57,12 @@ export const Cart = () => {
 			setModalIsOpen(true)
 		}
 	}
+	// функция закрытия модального окна
+	const closeModal = () => {
+		setModalIsOpen(false);
+		setOrderStatus(null);
+		setOrderId(null);
+	}
 	// расчет ценны заказа в корзине из данных cart
 	const totalPrice = cart ? cart.reduce((acc, item) => item.quantity * item.price + acc, 0) : 0;
 
@@ -61,7 +70,7 @@ export const Cart = () => {
 	return (
 		<section className="cart">
 			<div className="container cart__container">
-				<h2 className="cart__title">Корзина ({cart ? cart.length : 0})</h2>
+				<h2 className="cart__title">Корзина ({cart ? cart.reduce((acc, item) => item.quantity + acc, 0) : 0})</h2>
 				<ul className="cart__items">
 					{cart ? (cart.map((item) => (
 						<CartItem key={item.id} data={item} />))) : (
@@ -76,6 +85,12 @@ export const Cart = () => {
 					<button className="cart__order-btn" onClick={handleSubmit}>Заказать</button>
 				</div>
 			</div>
+			<Modal className="cart-modal" overlayClassName="modal-cart__overlay" onRequestClose={closeModal} isOpen={modalIsOpen}>
+				<h2 className="cart-modal__title">
+					{orderStatus === "success" ? `Заказ успешно отправлен! Номер вашего заказа: ${orderId}` : "Произошла ошибка при отправке зазказа"}
+				</h2>
+				<button className="cart-modal__button" onClick={closeModal}>Закрыть</button>
+			</Modal>
 		</section>
 	)
 }

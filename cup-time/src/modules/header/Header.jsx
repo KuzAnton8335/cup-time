@@ -48,7 +48,7 @@ export const Header = () => {
 					</nav>
 					<div className="header__mobail-menu">
 						<Link to="cart" className="header__cart-link">
-							{cart.length}
+							{cart ? cart.reduce((acc, item) => item.quantity + acc, 0) : 0}
 						</Link>
 						<button className="header__burger">
 							<span className="header__burger-line"></span>
