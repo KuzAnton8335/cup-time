@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
+import { useProducts } from "../../context/ProductContext";
 import "./header.scss";
 
 export const Header = () => {
@@ -10,6 +11,8 @@ export const Header = () => {
 			URLSearchParams(location.search).get("category");
 		return currentCategory === category ? "active" : '';
 	}
+
+	const { categories } = useProducts();
 	return (
 		<>
 			<header className="header">
@@ -17,9 +20,17 @@ export const Header = () => {
 					<Link to="/" className="header__logo">
 						<img src="./img/logo.svg" alt="Логотип cup time" className="header__logo-img" />
 					</Link>
+
 					<nav className="header__nav">
 						<ul className="header__menu">
-							<li className="header__menu-item">
+							{Object.entries(categories).map(([key, value]) => (
+								<li key={key} className="header__menu-item">
+									<Link to={`/products?category=${key}`}
+										className={`header__menu-link
+									${getActiveClass(key)}`}>{value}</Link>
+								</li>
+							))}
+							{/* <li className="header__menu-item">
 								<Link to="/products?category=tea"
 									className={`header__menu-link
 									${getActiveClass('tea')}`}>Чай</Link>
@@ -43,7 +54,7 @@ export const Header = () => {
 								<Link to="/products?category=other"
 									className={`header__menu-link
 										${getActiveClass('other')}`}>Прочее</Link>
-							</li>
+							</li> */}
 						</ul>
 					</nav>
 					<div className="header__mobail-menu">
@@ -55,7 +66,7 @@ export const Header = () => {
 						</button>
 					</div>
 				</div>
-			</header>
+			</header >
 		</>
 	)
 }

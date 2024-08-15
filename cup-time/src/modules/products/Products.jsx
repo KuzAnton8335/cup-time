@@ -7,8 +7,10 @@ import "./products.scss";
 
 export const Products = () => {
 	const [searchParams] = useSearchParams();
-	const { products, setCategory } = useProducts();
+	const { products, setCategory, categories } = useProducts();
 	const category = searchParams.get("category");
+
+	const categoryTitle = categories[category] || "Товары";
 
 	useEffect(() => {
 		setCategory(category);
@@ -17,7 +19,7 @@ export const Products = () => {
 		<>
 			<section className="products">
 				<div className="container">
-					<h2 className="products__title">Чай</h2>
+					<h2 className="products__title">{categoryTitle}</h2>
 					<ul className="pdocts__list">
 						{products.length ? products.map((item) => (
 							<Product key={item.id} data={item} />
