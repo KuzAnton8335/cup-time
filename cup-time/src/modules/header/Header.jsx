@@ -3,7 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { useProducts } from "../../context/ProductContext";
 import "./header.scss";
-// !!остановился на стилях работа по замене стилей
+
+// Компонент Header.jsx
 export const Header = () => {
 	const { cart = [] } = useCart();
 	const location = useLocation();
@@ -15,12 +16,14 @@ export const Header = () => {
 	const { categories } = useProducts();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+	// Открытие меню
 	const openMenu = () => {
-		setIsMenuOpen(false)
+		setIsMenuOpen(true)
 	}
 
+	// Закрытие меню
 	const closeMenu = () => {
-		setIsMenuOpen(true)
+		setIsMenuOpen(false)
 	}
 	return (
 		<>
@@ -73,6 +76,7 @@ export const Header = () => {
 							</svg>
 						</button>
 					</nav>
+
 					<div className="header__control">
 						<Link to="cart" className="header__cart-link">
 							{cart ? cart.reduce((acc, item) => item.quantity + acc, 0) : 0}

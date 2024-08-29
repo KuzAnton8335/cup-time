@@ -58,17 +58,19 @@
 .header__nav {
   @include mobail {
     display: none;
+  }
+}
 
-    .active {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: fixed;
-      overflow: hidden;
-      inset: 0;
-      height: 100vh;
-      background-color: #6cb9ab;
-    }
+.header__nav.active {
+  @include mobail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    overflow: hidden;
+    inset: 0;
+    height: 100vh;
+    background-color: #6cb9ab;
   }
 }
 
@@ -81,7 +83,8 @@
   }
 
   @include mobail {
-    display: none;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -106,6 +109,18 @@
 
 .header__close-btn {
   display: none;
+
+  @include mobail {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    display: block;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
 }
 
 .header__burger {
